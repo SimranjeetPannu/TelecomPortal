@@ -1,8 +1,8 @@
 export class Plan {
 
-    id?: any;
-    planName?: string;
-    planCost?: number;
-    deviceLimit?: number;
+    planid!: number;
+    planName!: string;
+    planCost!: number;
+    deviceLimit!: number;
     
 }

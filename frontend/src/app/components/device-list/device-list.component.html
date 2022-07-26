@@ -1,1 +1,24 @@
-<p>device-list works!</p>
+<div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Device ID</th>
+          <th scope="col">Device Model</th>
+          <th scope="col">Phone Number</th>
+          <th scope="col">Price</th>
+          <th scope="col">Device Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let device of devices">
+          <td>{{device.deviceid}}</td>
+          <td>{{device.devicemodel}}</td>
+          <td>{{device.phonenumber}}</td>
+          <td>{{device.price}}</td>
+          <td>
+              <button class="btn btn-danger btn-sm">Details</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

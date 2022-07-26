@@ -1,3 +1,5 @@
+import { HttpClientModule } from '@angular/common/http';
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -11,7 +13,6 @@ import { DeviceDetailComponent } from './components/device-detail/device-detail.
 import { DeviceListComponent } from './components/device-list/device-list.component';
 import { AccountComponent } from './components/account/account.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'
 
 
 @NgModule({
@@ -24,8 +25,6 @@ import { HttpClientModule } from '@angular/common/http'
     DeviceDetailComponent,
     DeviceListComponent,
     AccountComponent,
-    FormsModule,
-    HttpClientModule
   ],
   imports: [
     BrowserModule,

@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'device/:id', component: DeviceDetailComponent },
   { path: 'device', component: DeviceListComponent },
   { path: 'plan/:id', component: PlanDetailComponent },
-  { path: 'plan', component: PlanListComponent },
+  { path: 'phoneplan', component: PlanListComponent },
   { path: 'account/plan', component: AccountComponent },
   { path: 'account/device', component: AccountComponent },
 ];

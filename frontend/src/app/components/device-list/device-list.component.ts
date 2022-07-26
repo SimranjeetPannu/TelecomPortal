@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Device } from 'src/app/models/device.model';
+import { AccountService } from 'src/app/services/account.service';
 
 @Component({
   selector: 'app-device-list',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeviceListComponent implements OnInit {
 
-  constructor() { }
+  devices: Device[] = [];
 
+  constructor(private accountService: AccountService) { }
+  
   ngOnInit(): void {
+    this.accountService.getDevices()
+      .subscribe(response => this.devices = response);
   }
-
 }
