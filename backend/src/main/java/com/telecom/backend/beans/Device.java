@@ -15,17 +15,20 @@ public class Device {
 	 private int deviceid;
 	    
 	 @Column
-	 private String devicemodel;
+	 private String model;
 	    
 	 @Column
-	 private String phonenumber;
-	    
-	 @Column
-	 private int price;
+	 private int devicecost;
 
 	 public Device() {
 
-	 }
+	}
+
+	public Device(int deviceid, String model, int devicecost) {
+		this.deviceid = deviceid;
+		this.model = model;
+		this.devicecost = devicecost;
+	}
 
 	public int getDeviceid() {
 		return deviceid;
@@ -35,35 +38,27 @@ public class Device {
 		this.deviceid = deviceid;
 	}
 
-	public String getDevicemodel() {
-		return devicemodel;
+	public String getModel() {
+		return model;
 	}
 
-	public void setDevicemodel(String devicemodel) {
-		this.devicemodel = devicemodel;
+	public void setModel(String model) {
+		this.model = model;
 	}
 
-	public String getPhonenumber() {
-		return phonenumber;
+	public int getDevicecost() {
+		return devicecost;
 	}
 
-	public void setPhonenumber(String phonenumber) {
-		this.phonenumber = phonenumber;
-	}
-
-	public int getPrice() {
-		return price;
-	}
-
-	public void setPrice(int price) {
-		this.price = price;
+	public void setDevicecost(int devicecost) {
+		this.devicecost = devicecost;
 	}
 
 	@Override
 	public String toString() {
-		return "device [deviceid=" + deviceid + ", devicemodel=" + devicemodel + ", phonenumber=" + phonenumber
-				+ ", price=" + price + "]";
+		return "Device [devicecost=" + devicecost + ", deviceid=" + deviceid + ", model=" + model + "]";
 	}
-	 
-	 
+
 }
+
+	

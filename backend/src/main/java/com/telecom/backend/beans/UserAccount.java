@@ -11,13 +11,12 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "useraccount")
+@Table(name = "account")
 public class UserAccount {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	//@OneToOne                 //need to verify this with team
-	//@JoinColumn(name="customerID")
+	@Column(name = "customerid")
 	private int customerID;
 	
 	@Column
@@ -25,12 +24,6 @@ public class UserAccount {
 	
 	@Column
 	private int deviceid;
-	
-	@Column
-	private String firstname;
-	
-	@Column
-	private String lastname;
 	
 	@Column
 	private double monthlybill;
@@ -50,21 +43,50 @@ public class UserAccount {
 	
 	public UserAccount() { }
 
-	public UserAccount(int customerID, int planid, int deviceid, String firstname, String lastname,
-			double monthlybill) {
+	public UserAccount(int customerID, int planid, int deviceid, double monthlybill) {
 		super();
 		this.customerID = customerID;
 		this.planid = planid;
 		this.deviceid = deviceid;
-		this.firstname = firstname;
-		this.lastname = lastname;
 		this.monthlybill = monthlybill;
 	}
 	
+	public int getCustomerID() {
+		return customerID;
+	}
+
+	public void setCustomerID(int customerID) {
+		this.customerID = customerID;
+	}
+
+	public int getPlanid() {
+		return planid;
+	}
+
+	public void setPlanid(int planid) {
+		this.planid = planid;
+	}
+
+	public int getDeviceid() {
+		return deviceid;
+	}
+
+	public void setDeviceid(int deviceid) {
+		this.deviceid = deviceid;
+	}
+
+	public double getMonthlybill() {
+		return monthlybill;
+	}
+
+	public void setMonthlybill(double monthlybill) {
+		this.monthlybill = monthlybill;
+	}
+
 	@Override
 	public String toString() {
 		return "UserAccount [customerID=" + customerID + ", planid=" + planid + ", deviceid=" + deviceid
-				+ ", firstname=" + firstname + ", lastname=" + lastname + ", monthlybill=" + monthlybill + "]";
+				+ ", monthlybill=" + monthlybill + "]";
 	}
 	
 	

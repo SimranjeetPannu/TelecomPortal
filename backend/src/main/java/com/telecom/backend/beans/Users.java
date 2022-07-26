@@ -8,33 +8,46 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "users")
+@Table(name = "customer")
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int customerID;
-    
+	@Column(name = "customerid")
+    private int customerId;
+	@Column(name = "firstname")
+	private String firstName;
+	@Column(name = "lastname")
+	private String lastName;
     @Column
     private String username;
     @Column
     private String password;
     public Users() {
     }
-    
-    
-	public Users(int customerID, String username, String password) {
-		super();
-		this.customerID = customerID;
+	public Users(int customerId, String firstName, String lastName, String username, String password) {
+		this.customerId = customerId;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.username = username;
 		this.password = password;
 	}
-
-
-	public int getCustomerID() {
-		return customerID;
+	public int getCustomerId() {
+		return customerId;
 	}
-	public void setCustomerID(int customerID) {
-		this.customerID = customerID;
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 	public String getUsername() {
 		return username;
@@ -48,12 +61,10 @@ public class Users {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-
 	@Override
 	public String toString() {
-		return "Users [customerID=" + customerID + ", username=" + username + ", password=" + password + "]";
+		return "Users [customerId=" + customerId + ", firstName=" + firstName + ", lastName=" + lastName + ", password="
+				+ password + ", username=" + username + "]";
 	}
-   
    
 }
