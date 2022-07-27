@@ -12,14 +12,14 @@ import { PlanListComponent } from './components/plan-list/plan-list.component';
 const routes: Routes = [
   { path: '', redirectTo: 'account', pathMatch: 'full' },
   { path: 'account', component: AccountComponent },
-  { path: 'account/add-device', component: AddDeviceComponent },
-  { path: 'account/add-plan', component: AddPlanComponent },
-  { path: 'device/:id', component: DeviceDetailComponent },
+  // { path: 'account/add-device', component: AddDeviceComponent },
+  // { path: 'account/add-plan', component: AddPlanComponent },
+  // { path: 'device/:id', component: DeviceDetailComponent },
   { path: 'device', component: DeviceListComponent },
-  { path: 'plan/:id', component: PlanDetailComponent },
+  // { path: 'plan/:id', component: PlanDetailComponent },
   { path: 'phoneplan', component: PlanListComponent },
-  { path: 'account/plan', component: AccountComponent },
-  { path: 'account/device', component: AccountComponent },
+  // { path: 'account/plan', component: AccountComponent },
+  // { path: 'account/device', component: AccountComponent },
 ];
 
 @NgModule({

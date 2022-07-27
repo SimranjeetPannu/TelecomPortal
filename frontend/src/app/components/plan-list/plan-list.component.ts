@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Plan } from 'src/app/models/plan.model';
 import { AccountService } from 'src/app/services/account.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-plan-list',

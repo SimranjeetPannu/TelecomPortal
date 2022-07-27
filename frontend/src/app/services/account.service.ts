@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { Device } from '../models/device.model';
 import { Plan } from '../models/plan.model';
 import { Account } from '../models/account.model';
+import { User } from '../models/user.model';
+
 
 
 @Injectable({
@@ -23,6 +25,14 @@ export class AccountService {
 
   getDevices(): Observable<Device[]>{
     return this.http.get<Device[]>(this.url + '/devices/v1/');
+  }
+
+  getAccountDetails(): Observable<Account>{
+    return this.http.get<Account>(this.url + '/account/v1/');
+  }
+  
+  getUserDetails(): Observable<User>{
+    return this.http.get<User>(this.url + '/account/1');
   }
 
   //get list of all devices
