@@ -18,7 +18,7 @@ import com.telecom.backend.beans.Device;
 import com.telecom.backend.services.DeviceService;
 
 @RestController
-@RequestMapping("/devices/v1")
+@RequestMapping("/devices")
 //@CrossOrigin("http://localhost:?")
 public class DeviceController {
 	

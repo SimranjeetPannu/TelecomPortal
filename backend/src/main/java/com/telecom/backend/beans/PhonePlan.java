@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name = "plan")
@@ -22,6 +25,10 @@ public class PhonePlan {
     
     @Column(name = "devicelimit")
     private int deviceLimit;
+
+	@ManyToOne
+	@JoinColumn(name = "customerid")
+	private PhonePlan plan;
 
     public PhonePlan() {
 

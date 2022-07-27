@@ -1,13 +1,15 @@
 package com.telecom.backend.beans;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,7 +19,7 @@ public class UserAccount {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "customerid")
-	private int customerID;
+	private int customerid;
 	
 	@Column
 	private int planid;
@@ -28,11 +30,12 @@ public class UserAccount {
 	@Column
 	private double monthlybill;
 	
-	//Please look here carefully
-	//______________________________________________
-	//@OneToMany
-	//@JoinColumn(name ="planid")
-	//private Device device;
+
+	@OneToMany(mappedBy = "planid")
+	private Set<PhonePlan> plan;
+
+	@OneToMany(mappedBy = "deviceid")
+	private Set<Device> device;
 	
 	//@OneToMany
 	//@JoinColumn(name="deviceId")
@@ -43,20 +46,20 @@ public class UserAccount {
 	
 	public UserAccount() { }
 
-	public UserAccount(int customerID, int planid, int deviceid, double monthlybill) {
+	public UserAccount(int customerid, int planid, int deviceid, double monthlybill) {
 		super();
-		this.customerID = customerID;
+		this.customerid = customerid;
 		this.planid = planid;
 		this.deviceid = deviceid;
 		this.monthlybill = monthlybill;
 	}
 	
-	public int getCustomerID() {
-		return customerID;
+	public int getcustomerid() {
+		return customerid;
 	}
 
-	public void setCustomerID(int customerID) {
-		this.customerID = customerID;
+	public void setcustomerid(int customerid) {
+		this.customerid = customerid;
 	}
 
 	public int getPlanid() {
@@ -85,7 +88,7 @@ public class UserAccount {
 
 	@Override
 	public String toString() {
-		return "UserAccount [customerID=" + customerID + ", planid=" + planid + ", deviceid=" + deviceid
+		return "UserAccount [customerid=" + customerid + ", planid=" + planid + ", deviceid=" + deviceid
 				+ ", monthlybill=" + monthlybill + "]";
 	}
 	
