@@ -32,7 +32,7 @@ export class AccountService {
   }
   
   getUserDetails(): Observable<User>{
-    return this.http.get<User>(this.url + '/user/id/1');
+    return this.http.get<User>(this.url + '/account/1');
   }
 
   //get list of all devices
