@@ -29,7 +29,7 @@ public class UsersController {
 		
 	@GetMapping("/{id}")
 	public ResponseEntity<List<UserAccount>> findById(@PathVariable (value="id") int id){ 
-        return new ResponseEntity<List<UserAccount>>(service.findByCustomerid(id), HttpStatus.OK);
+        return new ResponseEntity<List<UserAccount>>(service.findByCustomerId(id), HttpStatus.OK);
 	}
 }
 
