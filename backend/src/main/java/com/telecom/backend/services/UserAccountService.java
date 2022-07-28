@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.telecom.backend.beans.UserAccount;
 import com.telecom.backend.data.UserAccountRepository;
+import com.telecom.backend.models.AccountModel;
 
 @Service
 public class UserAccountService {
@@ -49,22 +50,22 @@ public class UserAccountService {
 	}
 	
 	//Find the customer by id
-	public List<UserAccount> findByCustomerid(int customerid) {
-	logger.info("Query Made");
-	return userRepo.findBycustomerid(customerid);
-	}
+	// public List<UserAccount> findByCustomerid(int customerid) {
+	// logger.info("Query Made");
+	// return userRepo.findBycustomerid(customerid);
+	// }
 
-	// public List<AccountModel> findBycustomerid (int customerid) {
-	// AccountModel account;
-	// Optional<UserAccount> temp = userRepo.findById(customerid);
+	 public List<AccountModel> findBycustomerid (int customerid) {
+	 AccountModel account;
+	 Optional<UserAccount> temp = userRepo.findById(customerid);
 	
-	// for (UserAccount temp : customerid) {
+	 for (AccountModel temp : customerid) {
 
-	// 	account = new AccountModel(temp.get());
-	// }
+	 	account = new AccountModel(temp.get());
+	 }
 
-	// return account;
-	// }
+	 return account;
+	 }
 
 	public List<UserAccount> findBycustomerid(int customerid) {
 		return userRepo.findBycustomerid(customerid);

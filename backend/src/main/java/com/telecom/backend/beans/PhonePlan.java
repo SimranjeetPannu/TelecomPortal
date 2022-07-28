@@ -9,7 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 @Entity
-@Table(name = "plan")
+@Table(name = "phoneplan")
 public class PhonePlan {
 
 	@Id
@@ -24,10 +24,6 @@ public class PhonePlan {
     
     @Column(name = "devicelimit")
     private int deviceLimit;
-
-	@ManyToOne
-	@JoinColumn(name = "customerid")
-	private PhonePlan plan;
 
     public PhonePlan() {
 

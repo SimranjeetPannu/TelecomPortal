@@ -10,30 +10,26 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "device")
+@Table(name = "devices")
 public class Device {
 	 @Id
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
 	 private int deviceid;
 	    
 	 @Column
-	 private String model;
+	 private String name;
 	    
 	 @Column
-	 private int devicecost;
-
-	@ManyToOne
-	@JoinColumn(name = "customerid")
-	private UserAccount account;
+	 private int price;
 
 	 public Device() {
 
 	 }
 
-	public Device(int deviceid, String model, int devicecost) {
+	public Device(int deviceid, String name, int price) {
 		this.deviceid = deviceid;
-		this.model = model;
-		this.devicecost = devicecost;
+		this.name = name;
+		this.price = price;
 	}
 
 	public int getDeviceid() {
@@ -44,27 +40,28 @@ public class Device {
 		this.deviceid = deviceid;
 	}
 
-	public String getModel() {
-		return model;
+	public String getName() {
+		return name;
 	}
 
-	public void setModel(String model) {
-		this.model = model;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public int getDevicecost() {
-		return devicecost;
+	public int getPrice() {
+		return price;
 	}
 
-	public void setDevicecost(int devicecost) {
-		this.devicecost = devicecost;
+	public void setPrice(int price) {
+		this.price = price;
 	}
 
 	@Override
 	public String toString() {
-		return "Device [devicecost=" + devicecost + ", deviceid=" + deviceid + ", model=" + model + "]";
+		return "Device [deviceid=" + deviceid + ", name=" + name + ", price=" + price + "]";
 	}
 
+	 
 }
 
 	
