@@ -2,6 +2,7 @@ package com.telecom.backend.services;
 
 import java.util.List;
 
+import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +11,8 @@ import com.telecom.backend.data.UserAccountRepository;
 
 @Service
 public class UserAccountService {
+
+	private static final Logger logger = Logger.getLogger(UserAccountService.class);
 
 	@Autowired
 	private UserAccountRepository userRepo;
@@ -46,8 +49,25 @@ public class UserAccountService {
 	}
 	
 	//Find the customer by id
-	public List<UserAccount> findByCustomer(int customerid) {
-		return userRepo.findById(customerid);
+	public List<UserAccount> findByCustomerid(int customerid) {
+	logger.info("Query Made");
+	return userRepo.findBycustomerid(customerid);
+	}
+
+	// public List<AccountModel> findBycustomerid (int customerid) {
+	// AccountModel account;
+	// Optional<UserAccount> temp = userRepo.findById(customerid);
+	
+	// for (UserAccount temp : customerid) {
+
+	// 	account = new AccountModel(temp.get());
+	// }
+
+	// return account;
+	// }
+
+	public List<UserAccount> findBycustomerid(int customerid) {
+		return userRepo.findBycustomerid(customerid);
 	}
 
 }

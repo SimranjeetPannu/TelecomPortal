@@ -6,11 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
+import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import com.telecom.backend.beans.UserAccount;
+import com.telecom.backend.models.AccountModel;
 import com.telecom.backend.services.UserAccountService;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,14 +20,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/account")
 public class UserAccountController {
+
+	private static final Logger logger = Logger.getLogger(UserAccountController.class);
 	
 	@Autowired
 	private UserAccountService service;
 	
 	
 	@GetMapping("/{customerid}")
-	public ResponseEntity<List<UserAccount>> findById(@PathVariable int customerid) {
-		return new ResponseEntity<List<UserAccount>>(service.findByCustomer(customerid), HttpStatus.OK);
+	public ResponseEntity<List<UserAccount>> findBycustomerid(@PathVariable int customerid) {
+		logger.info("Query Made");
+		return new ResponseEntity<List<UserAccount>>(service.findBycustomerid(customerid), HttpStatus.OK);
 	}
 
 // 	@PostMapping("/{customerID}/{deviceid}")

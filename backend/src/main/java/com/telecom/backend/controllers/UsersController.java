@@ -1,7 +1,6 @@
 package com.telecom.backend.controllers;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,8 +28,8 @@ public class UsersController {
 
 		
 	@GetMapping("/{id}")
-	public ResponseEntity<Optional<UserAccount>> findById(@PathVariable (value="id") int id){ 
-        return new ResponseEntity<Optional<UserAccount>>(service.findById(id), HttpStatus.OK);
+	public ResponseEntity<List<UserAccount>> findById(@PathVariable (value="id") int id){ 
+        return new ResponseEntity<List<UserAccount>>(service.findByCustomerid(id), HttpStatus.OK);
 	}
 }
 
