@@ -15,25 +15,25 @@ public class PhonePlan {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-    @Column(name = "plan_name")
+    @Column(name = "planname")
     private String planName;
 
-    @Column(name = "device_limit")
+    @Column(name = "devicelimit")
     private int deviceLimit;  
     
     @Column(name="price")
     private double price;
 
-    @Column(name="user_id")
-    private int userId;
+    @Column(name="customerid")
+    private int customerid;
 
     public PhonePlan() {};
 
-    public PhonePlan(String planName, int deviceLimit, float price, int userId) {
+    public PhonePlan(String planName, int deviceLimit, float price, int customerid) {
         this.planName = planName;
         this.deviceLimit = deviceLimit;
         this.price = price;
-        this.userId = userId;
+        this.customerid = customerid;
     }
 
     public int getId() { 
@@ -64,17 +64,17 @@ public class PhonePlan {
         this.price = price;
     }
 
-    public int getUserId() {
-        return userId;
+    public int getCustomerid() {
+        return customerid;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setCustomerid(int customerid) {
+        this.customerid = customerid;
     }
 
     @Override
     public String toString() {
         return "PhonePlan [deviceLimit=" + deviceLimit + ", id=" + id + ", planName=" + planName + ", price=" + price
-                + ", userId=" + userId + "]";
+                + ", customerid=" + customerid + "]";
     }
 }

@@ -1,35 +1,39 @@
 package com.telecom.backend.services;
-
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.telecom.backend.beans.PhonePlan;
-import com.telecom.backend.data.PhoneplanRepository;
+import com.telecom.backend.data.PhonePlanRepository;
 
 @Service
-public class PhoneplanService {
+public class PhonePlanService {
 	
 	@Autowired
-	private PhoneplanRepository repository;
+	private PhonePlanRepository repository;
 	
-	public PhonePlan save(PhonePlan plan) {
-		return repository.save(plan);
-	}
-	
-	public Optional<PhonePlan> findById(int id) {
+	public PhonePlan findById(int id){
 		return repository.findById(id);
 	}
-	
-	public List<PhonePlan> findAll() {
-		return repository.findAll();
-	}
-	
-	public void deleteById(int id) {
-		repository.deleteById(id);
-	}
-	
 
+	public List<PhonePlan> findAllPlans(){
+		return repository.findAllPlans();
+	}
+	
+	public List<PhonePlan> findPlanByUserId(int customerid) {
+		return repository.findPlanByUserId(customerid);
+	}
+
+	@Transactional(propagation = Propagation.REQUIRES_NEW)
+	public PhonePlan add(PhonePlan plan) {
+		return repository.save(plan);
+	}
+
+	@Transactional()
+	public void delete(int planId) {
+		repository.delete(findById(planId));
+	}
 }

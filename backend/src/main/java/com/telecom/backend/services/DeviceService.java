@@ -1,32 +1,39 @@
 package com.telecom.backend.services;
-
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.telecom.backend.beans.Device;
 import com.telecom.backend.data.DeviceRepository;
+
 @Service
 public class DeviceService {
 	
 	@Autowired
-	private DeviceRepository repository;
+	private DeviceRepository repo;
 	
-	public Device save(Device device) {
-		return repository.save(device);
+	public Device findById(int id){
+		return repo.findById(id);
+	}
+
+	public List<Device> findAllDevices(){
+		return repo.findAllDevices();
 	}
 	
-	public Optional<Device> findById(int id) {
-		return repository.findById(id);
+	@Transactional(propagation = Propagation.REQUIRES_NEW)
+	public Device add(Device device) {
+		return repo.save(device);
 	}
-	
-	public List<Device> findAll() {
-		return repository.findAll();
+
+	@Transactional()
+	public void delete(int deviceId) {
+		repo.delete(findById(deviceId));
 	}
-	
-	public void deleteById(int id) {
-		repository.deleteById(id);
+
+	public List<Device> findDevicesByPlanId(int planId) {
+		return repo.findDevicesByPlanId(planId);
 	}
 }
