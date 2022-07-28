@@ -1,14 +1,11 @@
 package com.telecom.backend.beans;
 
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,7 +14,7 @@ public class UserAccount {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int username;
+	private String username;
 
 	@Column(name = "customerid")
 	private int customerId;
@@ -118,12 +115,13 @@ public class UserAccount {
 	public UserAccount() {
 	}
 
-	public UserAccount(int username, int customerId, double monthlybill, String phonePlan1, double phonePlan1Cost,
+	public UserAccount(String username, int customerId, double monthlybill, String phonePlan1, double phonePlan1Cost,
 			String phonePlan2, double phonePlan2Cost, String phonePlan3, double phonePlan3Cost, String phonePlan4,
-			double phonePlan4Cost, String phonePlan5, double phonePlan5Cost, String device1, double device1Cost, String device2,
-			double device2Cost, String device3, double device3Cost, String device4, double device4Cost, String device5,
-			double device5Cost, String device6, double device6Cost, String device7, double device7Cost, String device8,
-			double device8Cost, String device9, double device9Cost, String device10, double device10Cost) {
+			double phonePlan4Cost, String phonePlan5, double phonePlan5Cost, String device1, double device1Cost,
+			String device2, double device2Cost, String device3, double device3Cost, String device4, double device4Cost,
+			String device5, double device5Cost, String device6, double device6Cost, String device7, double device7Cost,
+			String device8, double device8Cost, String device9, double device9Cost, String device10,
+			double device10Cost) {
 		this.username = username;
 		this.customerId = customerId;
 		this.monthlybill = monthlybill;
@@ -159,11 +157,11 @@ public class UserAccount {
 		this.device10Cost = device10Cost;
 	}
 
-	public int getUsername() {
+	public String getUsername() {
 		return username;
 	}
 
-	public void setUsername(int username) {
+	public void setUsername(String username) {
 		this.username = username;
 	}
 
@@ -251,7 +249,7 @@ public class UserAccount {
 		return phonePlan5;
 	}
 
-	public void setPhonePlan5(String phonePlan1) {
+	public void setPhonePlan5(String phonePlan5) {
 		this.phonePlan5 = phonePlan5;
 	}
 
@@ -434,9 +432,10 @@ public class UserAccount {
 				+ ", device9=" + device9 + ", device9Cost=" + device9Cost + ", monthlybill=" + monthlybill
 				+ ", phonePlan1=" + phonePlan1 + ", phonePlan1Cost=" + phonePlan1Cost + ", phonePlan2=" + phonePlan2
 				+ ", phonePlan2Cost=" + phonePlan2Cost + ", phonePlan3=" + phonePlan3 + ", phonePlan3Cost="
-				+ phonePlan3Cost + ", phonePlan4=" + phonePlan4 + ", phonePlan4Cost=" + phonePlan4Cost
-				+ ", phonePlan5Cost=" + phonePlan5Cost + ", username=" + username + "]";
+				+ phonePlan3Cost + ", phonePlan4=" + phonePlan4 + ", phonePlan4Cost=" + phonePlan4Cost + ", phonePlan5="
+				+ phonePlan5 + ", phonePlan5Cost=" + phonePlan5Cost + ", username=" + username + "]";
 	}
 
+	
 	
 }

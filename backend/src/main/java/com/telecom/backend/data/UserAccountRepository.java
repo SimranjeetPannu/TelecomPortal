@@ -13,5 +13,5 @@ public interface UserAccountRepository extends JpaRepository<UserAccount, Intege
     // @Query (value="select * from account where customerid = :customerid", nativeQuery = true)
     // public List<UserAccount> findBycustomerid(@Param(value = "customerid") int customerid);
 
-    //public List<UserAccount> findBycustomerid(int customerid);
+    public List<UserAccount> findBycustomerId(int customerId);
 }

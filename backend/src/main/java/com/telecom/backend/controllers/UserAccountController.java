@@ -4,9 +4,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.security.cert.PKIXRevocationChecker.Option;
 import java.util.List;
-import java.util.Optional;
 
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +12,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import com.telecom.backend.beans.UserAccount;
-import com.telecom.backend.models.AccountModel;
 import com.telecom.backend.services.UserAccountService;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,9 +28,9 @@ public class UserAccountController {
 	
 	
 	@GetMapping("/{customerId}")
-	public ResponseEntity<Optional<UserAccount>> findBycustomerid(@PathVariable int customerId) {
+	public ResponseEntity<List<UserAccount>> findBycustomerid(@PathVariable int customerId) {
 		logger.info("Query Made");
-		return new ResponseEntity<Optional<UserAccount>>(service.findBycustomerId(customerId), HttpStatus.OK);
+		return new ResponseEntity<List<UserAccount>>(service.findByCustomerId(customerId), HttpStatus.OK);
 	}
 
 // 	@PostMapping("/{customerID}/{deviceid}")
