@@ -31,9 +31,9 @@ export class AccountService {
     return this.http.get<Account>(this.url + '/account/v1/');
   }
   
-  getUserDetails(): Observable<User>{
-    return this.http.get<User>(this.url + '/user/id/1');
-  }
+  // getUserDetails(): Observable<User>{
+  //   return this.http.get<User>(this.url + '/user/id/1');
+  // }
 
   //get list of all devices
   // getAllDevice(): Observable<Device[]> {
