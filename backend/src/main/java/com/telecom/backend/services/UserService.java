@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.telecom.backend.beans.Users;
-import com.telecom.backend.data.UserRepositry;
+import com.telecom.backend.data.UserRepository;
 
 @Service
 public class UserService {
 	
 	@Autowired
-	private UserRepositry userRepo;
+	private UserRepository userRepo;
 	
 	//Register the new user
 	public Users register(Users user) {

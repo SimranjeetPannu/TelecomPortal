@@ -14,7 +14,7 @@ public class UserAccount {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int username;
+	private String username;
 
 	@Column(name = "customerid")
 	private int customerId;
@@ -115,7 +115,7 @@ public class UserAccount {
 	public UserAccount() {
 	}
 
-	public UserAccount(int username, int customerId, double monthlybill, String phonePlan1, double phonePlan1Cost,
+	public UserAccount(String username, int customerId, double monthlybill, String phonePlan1, double phonePlan1Cost,
 			String phonePlan2, double phonePlan2Cost, String phonePlan3, double phonePlan3Cost, String phonePlan4,
 			double phonePlan4Cost, String phonePlan5, double phonePlan5Cost, String device1, double device1Cost,
 			String device2, double device2Cost, String device3, double device3Cost, String device4, double device4Cost,
@@ -157,11 +157,11 @@ public class UserAccount {
 		this.device10Cost = device10Cost;
 	}
 
-	public int getUsername() {
+	public String getUsername() {
 		return username;
 	}
 
-	public void setUsername(int username) {
+	public void setUsername(String username) {
 		this.username = username;
 	}
 

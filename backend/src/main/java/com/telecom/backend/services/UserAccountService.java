@@ -16,11 +16,11 @@ public class UserAccountService {
 	@Autowired
 	private UserAccountRepository userRepo;
 	
-	// // Add a device to their account
+	 // Add a device to their account
 	// public UserAccount addDevice(int customerID, int deviceid) {
 	// 	userRepo.findById(customerID).get().setDeviceid(deviceid);
 	// 	return userRepo.findById(customerID).get();
-	// }
+	//  }
 	
 	// // Add a Phone Plan to their account
 	// public UserAccount addPhonePlan(int customerID, int planid) {
