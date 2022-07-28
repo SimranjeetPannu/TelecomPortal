@@ -4,6 +4,7 @@
         <tr>
           <th scope="col">Device ID</th>
           <th scope="col">Device Model</th>
+          <th scope="col">Phone Number</th>
           <th scope="col">Price</th>
           <th scope="col">Add to Plan</th>
         </tr>
@@ -11,8 +12,9 @@
       <tbody>
         <tr *ngFor="let device of devices">
           <td>{{device.deviceid}}</td>
-          <td>{{device.model}}</td>
-          <td>{{device.devicecost}}</td>
+          <td>{{device.devicemodel}}</td>
+          <td>{{device.phonenumber}}</td>
+          <td>{{device.price}}</td>
           <td>
               <button class="btn btn-danger btn-sm">Add</button>
           </td>

@@ -1,8 +1,6 @@
 export class User {
 
-    customerId!: number;
-    firstName!: string;
-    lastName!: string;
+    customerID!: number;
     username!: string;
     password!: string;
     

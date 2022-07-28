@@ -1,7 +1,8 @@
 export class Device {
 
     deviceid!: number;
-    model!: string;
-    devicecost!: number;
+    devicemodel!: string;
+    phonenumber!: number;
+    price!: number;
     
 }
