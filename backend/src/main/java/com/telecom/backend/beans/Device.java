@@ -10,56 +10,58 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "devices")
 public class Device {
-	 @Id
-	 @GeneratedValue(strategy = GenerationType.IDENTITY)
-	 private int deviceid;
-	    
-	 @Column
-	 private String name;
-	    
-	 @Column
-	 private int price;
+    
+    @Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 
-	 public Device() {
+    @Column(name = "devicename")
+    private String deviceName;
 
-	 }
+    @Column(name = "phonenumber", unique = true)
+    private String phoneNumber;
 
-	public Device(int deviceid, String name, int price) {
-		this.deviceid = deviceid;
-		this.name = name;
-		this.price = price;
-	}
+    @Column(name = "planid")
+    private int planId;
 
-	public int getDeviceid() {
-		return deviceid;
-	}
+    public Device() {}
 
-	public void setDeviceid(int deviceid) {
-		this.deviceid = deviceid;
-	}
+    public Device(String deviceName, String phoneNumber, int planId) {
+        this.deviceName = deviceName;
+        this.phoneNumber = phoneNumber;
+        this.planId = planId;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public int getId() {
+        return id;
+    }
+    public String getDeviceName() {
+        return deviceName;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setDeviceName(String deviceName) {
+        this.deviceName = deviceName;
+    }
 
-	public int getPrice() {
-		return price;
-	}
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 
-	public void setPrice(int price) {
-		this.price = price;
-	}
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
-	@Override
-	public String toString() {
-		return "Device [deviceid=" + deviceid + ", name=" + name + ", price=" + price + "]";
-	}
+    public int getPlanId() {
+        return planId;
+    }
 
-	 
+    public void setPlanId(int planId) {
+        this.planId = planId;
+    }
+
+    @Override
+    public String toString() {
+        return "Device [deviceName=" + deviceName + ", id=" + id + ", phoneNumber=" + phoneNumber + ", planId=" + planId + "]";
+    }
+
 }
-
-	
