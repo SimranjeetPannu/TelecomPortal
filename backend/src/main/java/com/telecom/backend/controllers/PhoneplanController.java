@@ -2,15 +2,12 @@ package com.telecom.backend.controllers;
 
 import java.util.List;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,12 +16,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.telecom.backend.beans.PhonePlan;
-import com.telecom.backend.services.PlanService;
-import com.telecom.backend.services.UserServiceV1;
+import com.telecom.backend.services.PhonePlanService;
 
 @EnableGlobalMethodSecurity(jsr250Enabled = false, prePostEnabled = true, securedEnabled = false)
 @CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
@@ -98,7 +93,7 @@ public class PhonePlanController {
     PhonePlan _plan = planService.findById(plan.getId());
     try {
       if(_plan == null) {
-        _plan = planService.add(new PhonePlan(plan.getPlanName(), plan.getDeviceLimit(), plan.getPrice(), plan.getUserId()));
+        _plan = planService.add(new PhonePlan(plan.getPlanName(), plan.getDeviceLimit(), plan.getPrice(), plan.getCustomerid()));
       }
           
       return new ResponseEntity<>(_plan, HttpStatus.CREATED);

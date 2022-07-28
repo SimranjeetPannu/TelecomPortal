@@ -2,7 +2,6 @@ package com.telecom.backend.controllers;
 
 import java.util.List;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import com.telecom.backend.beans.Users;
 import com.telecom.backend.services.UserService;
@@ -65,7 +63,7 @@ public class UserController {
     BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
     try {
       Users _user = userService
-          .add(new UserClass(user.getUserName(), user.getEmail(), encoder.encode(user.getPassword())));
+          .add(new Users(user.getUserName(), user.getEmail(), encoder.encode(user.getPassword())));
       return new ResponseEntity<>(_user, HttpStatus.CREATED);
     } catch (Exception e) {
       return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

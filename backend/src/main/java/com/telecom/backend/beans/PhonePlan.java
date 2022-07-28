@@ -29,7 +29,7 @@ public class PhonePlan {
 
     public PhonePlan() {};
 
-    public PhonePlan(String planName, int deviceLimit, float price, int customerid) {
+    public PhonePlan(String planName, int deviceLimit, double price, int customerid) {
         this.planName = planName;
         this.deviceLimit = deviceLimit;
         this.price = price;
