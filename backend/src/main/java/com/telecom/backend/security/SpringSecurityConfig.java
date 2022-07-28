@@ -17,51 +17,51 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import com.telecom.backend.beans.UserAccount;
 import com.telecom.backend.beans.Users;
 
-@Configuration
-@EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
-public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
+// @Configuration
+// @EnableWebSecurity
+// @EnableGlobalMethodSecurity(prePostEnabled = true)
+public class SpringSecurityConfig {
 
-    String url = "jdbc:mysql://localhost:3306/telecomprojectss";
-	String user = "root";
-	String password = "Maxo1014!";
-	String driver = "com.mysql.cj.jdbc.Driver";
+    // String url = "jdbc:mysql://localhost:3306/telecomprojectss";
+	// String user = "root";
+	// String password = "Maxo1014!";
+	// String driver = "com.mysql.cj.jdbc.Driver";
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().mvcMatchers("/**").hasRole("ADMIN").anyRequest().authenticated()
-        .and().formLogin();
-    }
+    // @Override
+    // protected void configure(HttpSecurity http) throws Exception {
+    //     http.authorizeRequests().mvcMatchers("/**").hasRole("ADMIN").anyRequest().authenticated()
+    //     .and().formLogin();
+    // }
     
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder authBuilder) throws Exception {
-        // Schema it expects to be inside schema.xml
-        // Need encryption to protext user's passwords
-        authBuilder.jdbcAuthentication().dataSource(mySqlDataSource()).passwordEncoder(passwordEncoder());
-    }
+    // @Autowired
+    // public void configureGlobal(AuthenticationManagerBuilder authBuilder) throws Exception {
+    //     // Schema it expects to be inside schema.xml
+    //     // Need encryption to protext user's passwords
+    //     authBuilder.jdbcAuthentication().dataSource(mySqlDataSource()).passwordEncoder(passwordEncoder());
+    // }
 
-    @Bean
-    public javax.sql.DataSource mySqlDataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource(url, user, password);
-        dataSource.setDriverClassName(driver);
-        return dataSource;
-    }
-
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        // This is a 1-way hash, no going back
-        // The defauly BCrypt goes 10 rounds for password "Strength"
-        return new BCryptPasswordEncoder();
-    }
-
-    @Override
     // @Bean
-    public UserDetailsService userDetailsServiceBean() throws Exception {
-        // Would not want to setup our userdetails service in this way in prod, just dev/learning
-        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-        // Are able to implement custom userdetails since it's an interface
-        // We will just use the built in one
-        manager.createUser(Users.withUsername("admin").password("admin").roles("ADMIN").build());
-        return manager;
-    }
+    // public javax.sql.DataSource mySqlDataSource() {
+    //     DriverManagerDataSource dataSource = new DriverManagerDataSource(url, user, password);
+    //     dataSource.setDriverClassName(driver);
+    //     return dataSource;
+    // }
+
+    // @Bean
+    // public BCryptPasswordEncoder passwordEncoder() {
+    //     // This is a 1-way hash, no going back
+    //     // The defauly BCrypt goes 10 rounds for password "Strength"
+    //     return new BCryptPasswordEncoder();
+    // }
+
+    // @Override
+    // // @Bean
+    // public UserDetailsService userDetailsServiceBean() throws Exception {
+    //     // Would not want to setup our userdetails service in this way in prod, just dev/learning
+    //     InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
+    //     // Are able to implement custom userdetails since it's an interface
+    //     // We will just use the built in one
+    //     manager.createUser(Users.withUsername("admin").password("admin").roles("ADMIN").build());
+    //     return manager;
+    // }
 }

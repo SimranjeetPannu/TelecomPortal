@@ -1,6 +1,7 @@
 package com.telecom.backend.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,20 +56,20 @@ public class UserAccountService {
 	// return userRepo.findBycustomerid(customerid);
 	// }
 
-	 public List<AccountModel> findBycustomerid (int customerid) {
-	 AccountModel account;
-	 Optional<UserAccount> temp = userRepo.findById(customerid);
+	//  public List<AccountModel> findBycustomerid (int customerid) {
+	//  AccountModel account;
+	//  Optional<UserAccount> temp = userRepo.findById(customerid);
 	
-	 for (AccountModel temp : customerid) {
+	//  for (AccountModel temp : customerid) {
 
-	 	account = new AccountModel(temp.get());
-	 }
+	//  	account = new AccountModel(temp.get());
+	//  }
 
-	 return account;
-	 }
+	//  return account;
+	//  }
 
-	public List<UserAccount> findBycustomerid(int customerid) {
-		return userRepo.findBycustomerid(customerid);
+	public Optional<UserAccount> findBycustomerId(int customerId) {
+		return userRepo.findById(customerId);
 	}
 
 }
