@@ -33,7 +33,7 @@ public class PhonePlanService {
 	}
 
 	@Transactional()
-	public void delete(int planId) {
-		repository.delete(findById(planId));
+	public void delete(int planid) {
+		repository.delete(findById(planid));
 	}
 }

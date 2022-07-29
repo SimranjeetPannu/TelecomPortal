@@ -33,7 +33,7 @@ public class DeviceService {
 		repo.delete(findById(deviceId));
 	}
 
-	public List<Device> findDevicesByPlanId(int planId) {
-		return repo.findDevicesByPlanId(planId);
+	public List<Device> findDevicesByPlanid(int planid) {
+		return repo.findDevicesByPlanid(planid);
 	}
 }

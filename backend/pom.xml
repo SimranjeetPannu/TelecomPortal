@@ -8,10 +8,10 @@
 		<version>2.7.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.project2</groupId>
+	<groupId>com.telecom</groupId>
 	<artifactId>project2</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>project2</name>
+	<name>telecom</name>
 	<description>Telecom Customer Portal</description>
 	<properties>
 		<java.version>1.8</java.version>

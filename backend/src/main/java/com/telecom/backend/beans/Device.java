@@ -22,14 +22,14 @@ public class Device {
     private String phoneNumber;
 
     @Column(name = "planid")
-    private int planId;
+    private int planid;
 
     public Device() {}
 
-    public Device(String deviceName, String phoneNumber, int planId) {
+    public Device(String deviceName, String phoneNumber, int planid) {
         this.deviceName = deviceName;
         this.phoneNumber = phoneNumber;
-        this.planId = planId;
+        this.planid = planid;
     }
 
     public int getId() {
@@ -51,17 +51,17 @@ public class Device {
         this.phoneNumber = phoneNumber;
     }
 
-    public int getPlanId() {
-        return planId;
+    public int getPlanid() {
+        return planid;
     }
 
-    public void setPlanId(int planId) {
-        this.planId = planId;
+    public void setPlanid(int planid) {
+        this.planid = planid;
     }
 
     @Override
     public String toString() {
-        return "Device [deviceName=" + deviceName + ", id=" + id + ", phoneNumber=" + phoneNumber + ", planId=" + planId + "]";
+        return "Device [deviceName=" + deviceName + ", id=" + id + ", phoneNumber=" + phoneNumber + ", planid=" + planid + "]";
     }
 
 }

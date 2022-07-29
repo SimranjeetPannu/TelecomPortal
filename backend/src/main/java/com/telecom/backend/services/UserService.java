@@ -33,7 +33,7 @@ public class UserService {
 	}
 
 	@Transactional()
-	public void delete(int user_id) {
-		repo.delete(findById(user_id));
+	public void delete(int customerid) {
+		repo.delete(findById(customerid));
 	}
 }

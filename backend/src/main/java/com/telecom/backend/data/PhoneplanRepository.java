@@ -12,14 +12,14 @@ public interface PhonePlanRepository extends JpaRepository<PhonePlan, Integer>{
 	
 	public PhonePlan findById(int id);
 	
-	@Query( "SELECT p FROM Plan p")
+	@Query( "SELECT p FROM PhonePlan p")
 	public List<PhonePlan> findAllPlans();
 
 
 	public PhonePlan findByPlanName(String planName);
 
 	// Selects plans owned by specific user
-	@Query( "SELECT p FROM Plan p WHERE p.userId = :id" )
+	@Query( "SELECT p FROM PhonePlan p WHERE p.customerid = :id" )
     public List<PhonePlan> findPlanByUserId(@Param("id") int id);
 
 	

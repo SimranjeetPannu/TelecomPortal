@@ -9,7 +9,7 @@ public interface UserRepository extends JpaRepository<Users, Integer>{
 	
 	public Users findById(int id);
 	
-	@Query( "SELECT u FROM UserClass u")
+	@Query( "SELECT u FROM Users u")
 	public List<Users> findAllUsers();
 
 	// Used by CustomUserDetailService

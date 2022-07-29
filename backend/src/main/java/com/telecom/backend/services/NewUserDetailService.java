@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 import com.telecom.backend.beans.Users;
 import com.telecom.backend.data.UserRepository;
 
-
 @Component
 public class NewUserDetailService implements UserDetailsService {
 

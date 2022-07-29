@@ -45,7 +45,7 @@ public class DeviceController {
   public ResponseEntity<List<Device>> findById(@PathVariable("id") int id){
 	  
 	  try {
-		  List<Device> devices = deviceService.findDevicesByPlanId(id);
+		  List<Device> devices = deviceService.findDevicesByPlanid(id);
 		  if(devices == null) {
 			  return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		  }
@@ -61,7 +61,7 @@ public class DeviceController {
     Device _device = deviceService.findById(device.getId());
     try {
       if(_device == null){
-        _device = deviceService.add(new Device(device.getDeviceName(), device.getPhoneNumber(), device.getPlanId()));
+        _device = deviceService.add(new Device(device.getDeviceName(), device.getPhoneNumber(), device.getPlanid()));
         return new ResponseEntity<>(_device, HttpStatus.CREATED);
       }
       else{
@@ -79,7 +79,7 @@ public class DeviceController {
     if (deviceData != null) {
         deviceData.setDeviceName(device.getDeviceName());
         deviceData.setPhoneNumber(device.getPhoneNumber());
-        deviceData.setPlanId(device.getPlanId());
+        deviceData.setPlanid(device.getPlanid());
       return new ResponseEntity<>(deviceService.add(deviceData), HttpStatus.OK);
     } else {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
