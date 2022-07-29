@@ -31,7 +31,7 @@ public class UserController {
   @Autowired
   UserService userService;
   
-  // Just for testing
+  
   @GetMapping("/authed")
   public ResponseEntity<?> getUsers(HttpServletResponse response) {
     List<Users> userData = userService.findAllUsers();
