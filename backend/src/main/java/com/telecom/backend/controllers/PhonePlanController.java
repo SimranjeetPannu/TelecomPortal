@@ -30,7 +30,7 @@ public class PhonePlanController {
   @Autowired
   PhonePlanService planService;
   
-  // Just for testing
+  
   @GetMapping("/authed")
   public ResponseEntity<List<PhonePlan>> getUsers(HttpServletResponse response) {
     List<PhonePlan> planData = planService.findAllPlans();
