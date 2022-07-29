@@ -2,7 +2,7 @@ import { LiteralMapExpr } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Device } from 'src/app/models/device.model';
-import { Plan } from 'src/app/models/plan.model';
+import { PhonePlan } from 'src/app/models/plan.model';
 import { User } from 'src/app/models/user.model';
 import { DeviceService } from 'src/app/services/device.service';
 import { PlanService } from 'src/app/services/plan.service';
@@ -17,7 +17,7 @@ import { UserStateService } from 'src/app/services/user-state.service';
 })
 export class PlanPageComponent implements OnInit {
   userId = JSON.parse(sessionStorage.getItem('userId') || '{}');
-  Plan: Plan = new Plan("noplan", 0, 0.0, this.userId);
+  Plan: PhonePlan = new PhonePlan("noplan", 0, 0.0, this.userId);
   mimtPlan: string = "noplan";
   phones: string[] = [""];
   errorMsg: string = '';

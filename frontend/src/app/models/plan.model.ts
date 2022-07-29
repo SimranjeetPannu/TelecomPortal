@@ -1,21 +1,20 @@
-export class Plan {
+export class PhonePlan {
 
-    //SUBJECT TO CHANGE
     id!: number;
     planName: string;
     deviceLimit: number;
     price: number;
-    userId: number;
+    customerid: number;
     
     constructor(
         planName: string,
         deviceLimit: number,
         price: number,
-        userId: number
+        customerid: number
         ) {
             this.planName = planName;
             this.deviceLimit = deviceLimit;
             this.price = price;
-            this.userId = userId;
+            this.customerid = customerid;
         }
 }

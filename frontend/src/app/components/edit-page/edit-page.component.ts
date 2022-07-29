@@ -2,7 +2,7 @@ import { AfterContentInit, AfterViewInit, Component, OnInit } from '@angular/cor
 import { ActivatedRoute, Router } from "@angular/router";
 import { PlanService } from 'src/app/services/plan.service';
 import { DeviceService } from 'src/app/services/device.service';
-import { Plan } from 'src/app/models/plan.model';
+import { PhonePlan } from 'src/app/models/plan.model';
 import { Device } from 'src/app/models/device.model';
 import { CurrencyPipe } from '@angular/common';
 
@@ -17,7 +17,7 @@ import { CurrencyPipe } from '@angular/common';
 export class EditPageComponent implements OnInit {
 
   phones: string[] = [""];
-  Plan: Plan | undefined;
+  Plan: PhonePlan | undefined;
   Devices: Device[] = [];
   errorMsg: string ='';
   warningMsg: string = '';
@@ -53,7 +53,6 @@ export class EditPageComponent implements OnInit {
       }
 
         for (let i = 0; i <= this.Devices.length - 1; i++) {
-          //alert("Phone Number: " + this.Devices[i].phoneNumber + "\n Phonemodel: " + this.Devices[i].deviceName + "\nPlan ID: " + this.Devices[i].planId);
           if(this.Devices[i].phoneNumber == ''){
             this.deviceService.saveDevice(NewDevices[i]).subscribe(data => {
               this.router.navigateByUrl('/user');
@@ -69,12 +68,7 @@ export class EditPageComponent implements OnInit {
             });
           }
 
-        }
-
-        //UPDATE DEVICES HERE
-        // the plan ID is tied to params['id']
-        // and the updated list of devices is in NewDevices
-      
+        }      
       })};
   }
 

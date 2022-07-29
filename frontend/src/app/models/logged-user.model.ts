@@ -1,5 +1,5 @@
 import { Device } from "./device.model";
-import { Plan } from "./plan.model";
+import { PhonePlan } from "./plan.model";
 
 export class LoggedUser {
 
@@ -8,14 +8,14 @@ export class LoggedUser {
     userName: string;
     email: string;
     password: string;
-    plans: Array<Plan>;
+    plans: Array<PhonePlan>;
     devices: Array<Device>;
 
     constructor(
         userName: string,
         email: string,
         password: string,
-        plans: Array<Plan>,
+        plans: Array<PhonePlan>,
         devices: Array<Device>
         ) {
             this.userName = userName;

@@ -8,7 +8,7 @@ import { DeviceService } from 'src/app/services/device.service';
 import { PlanService } from 'src/app/services/plan.service';
 import { AppService } from 'src/app/services/app.service';
 import { UserService } from 'src/app/services/user.service';
-import { Plan } from 'src/app/models/plan.model';
+import { PhonePlan } from 'src/app/models/plan.model';
 
 
 @Component({
@@ -19,7 +19,7 @@ import { Plan } from 'src/app/models/plan.model';
 export class UserPageComponent implements OnInit {
   //not sure how to do with login so I'm gonna wait on this one
   User?: User;
-  Plans: Plan[] = [];
+  Plans: PhonePlan[] = [];
   Devices?: Device[]=[];
   Device: Device | undefined;
   // User.id: number;

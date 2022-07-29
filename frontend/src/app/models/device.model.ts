@@ -1,6 +1,5 @@
 export class Device {
 
-    //SUBJECT TO CHANGE
     id!: number;
     deviceName: string;
     phoneNumber: string;

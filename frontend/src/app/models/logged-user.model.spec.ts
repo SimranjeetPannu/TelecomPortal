@@ -2,6 +2,6 @@ import { LoggedUser } from './logged-user.model';
 
 describe('LoggedUser', () => {
   it('should create an instance', () => {
-    expect(new LoggedUser("Zulmak","zulmak@destiny2.com","zulmak",[],[])).toBeTruthy();
+    expect(new LoggedUser("Dan Pickles","pickleman@gmail.com","pickles",[],[])).toBeTruthy();
   });
 });

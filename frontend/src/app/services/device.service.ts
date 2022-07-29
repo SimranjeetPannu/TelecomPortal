@@ -15,16 +15,14 @@ export class DeviceService {
     return this.http.get<Device[]>(this.url + "/authed", {observe: 'response', withCredentials: true});
   }
 
-  //THIS NEEDS TWEAKING, NEED NEW ROUTES ON BACKEND
-  findDevicesByPlan(planId: number): Observable<HttpResponse<Device[]>> {
-    return this.http.get<Device[]>(this.url + `/${planId}`, {observe: 'response', withCredentials: true});
+  findDevicesByPlan(planid: number): Observable<HttpResponse<Device[]>> {
+    return this.http.get<Device[]>(this.url + `/${planid}`, {observe: 'response', withCredentials: true});
   }
 
   findDeviceById(deviceId: number): Observable<HttpResponse<Device>> {
     return this.http.get<Device>(this.url + `/${deviceId}`, {observe: 'response', withCredentials: true});
   }
 
-  //might not need all CRUD for devices
   saveDevice(device: Device): Observable<HttpResponse<Device>> {
     return this.http.post<Device>(this.url + "/newdevice", device, {observe: 'response', withCredentials: true});
   }
