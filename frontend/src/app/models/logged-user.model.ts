@@ -3,7 +3,6 @@ import { PhonePlan } from "./plan.model";
 
 export class LoggedUser {
 
-    //SUBJECT TO CHANGE
     id!: number;
     userName: string;
     email: string;

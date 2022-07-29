@@ -3,15 +3,15 @@ export class Device {
     id!: number;
     deviceName: string;
     phoneNumber: string;
-    planId: number;
+    planid: number;
 
     constructor(
         deviceName: string,
         phoneNumber: string,
-        planId: number
+        planid: number
         ) {
             this.deviceName = deviceName;
             this.phoneNumber = phoneNumber;
-            this.planId = planId;
+            this.planid = planid;
         }
 }

@@ -24,14 +24,13 @@ export class UsersPlansComponent implements OnInit {
 
   constructor(private planService: PlanService, private deviceService: DeviceService, private userService: UserService, private router: Router) { }
 
-  //CHANGE THIS
   ngOnInit(): void {
 
     this.userService.findUser().subscribe(data => {
       if (data.body != null)
-      sessionStorage.setItem('userId', data.body?.id.toString());
+      sessionStorage.setItem('customerid', data.body?.id.toString());
 
-      this.planService.findPlansByUser(JSON.parse(sessionStorage.getItem('userId') || '{}')).subscribe((data) => {
+      this.planService.findPlansByUser(JSON.parse(sessionStorage.getItem('customerid') || '{}')).subscribe((data) => {
         if (data.body != null) {
           this.Plans = data.body;
           for(let i = 0; i < this.Plans.length; i++){

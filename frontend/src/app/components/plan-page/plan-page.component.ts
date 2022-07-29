@@ -16,8 +16,8 @@ import { UserStateService } from 'src/app/services/user-state.service';
   styleUrls: ['./plan-page.component.css']
 })
 export class PlanPageComponent implements OnInit {
-  userId = JSON.parse(sessionStorage.getItem('userId') || '{}');
-  Plan: PhonePlan = new PhonePlan("noplan", 0, 0.0, this.userId);
+  customerid = JSON.parse(sessionStorage.getItem('customerid') || '{}');
+  Plan: PhonePlan = new PhonePlan("noplan", 0, 0.0, this.customerid);
   mimtPlan: string = "noplan";
   phones: string[] = [""];
   errorMsg: string = '';
@@ -149,7 +149,7 @@ export class PlanPageComponent implements OnInit {
 
           if (this.selected === true) {
 
-            // Saves Plan to database
+
             try {
               this.planService.savePlan(this.Plan).subscribe(data => {
                 if (data.body != null || data.body != undefined) {
@@ -157,7 +157,7 @@ export class PlanPageComponent implements OnInit {
                 }
 
                 for (let i = 0; i < Devices.length; i++) {
-                  Devices[i].planId = this.Plan.id
+                  Devices[i].planid = this.Plan.id
                   this.deviceService.saveDevice(Devices[i]).subscribe(data => {
                     setTimeout(() => this.router.navigateByUrl('/user'), 2500);
                   }, (error: Error) => {
@@ -194,7 +194,7 @@ export class PlanPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.planService.findPlansByUser(this.userId).subscribe((data) => {
+    this.planService.findPlansByUser(this.customerid).subscribe((data) => {
       // logs all plans for current user
       // console.log(data.body);
       if (data.body != null) {

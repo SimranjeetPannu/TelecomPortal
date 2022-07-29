@@ -2,15 +2,15 @@
 </div>
 <div class="plan-page-container">
   <div>
-    <h1 *ngIf="typeOf(this.userId) === 'number'" class="page-header">
+    <h1 *ngIf="typeOf(this.customerid) === 'number'" class="page-header">
       Create a Plan
     </h1>
-    <h1 *ngIf="typeOf(this.userId) != 'number'" class="page-header">
+    <h1 *ngIf="typeOf(this.customerid) != 'number'" class="page-header">
       What We Offer
     </h1>
     <div class="device-creation-container">
       <div>
-        <div *ngIf="typeOf(this.userId) === 'number'" class="num-devices
+        <div *ngIf="typeOf(this.customerid) === 'number'" class="num-devices
           container">
           <div class="device-items shadow card">
             <h2>How many devices do you need?</h2>
@@ -55,7 +55,7 @@
                           Data</li>
                       </ul>
                       <div class="d-grid">
-                        <a *ngIf="typeOf(this.userId) === 'number'"
+                        <a *ngIf="typeOf(this.customerid) === 'number'"
                           (click)="selectPlan('MINIMAL')" class="btn btn-primary
                           text-uppercase">SELECT</a>
                       </div>
@@ -78,7 +78,7 @@
                           Data</li>
                       </ul>
                       <div class="d-grid">
-                        <a *ngIf="typeOf(this.userId) === 'number'"
+                        <a *ngIf="typeOf(this.customerid) === 'number'"
                           (click)="selectPlan('BASIC')" class="btn btn-primary
                           text-uppercase">SELECT</a>
                       </div>
@@ -101,7 +101,7 @@
                           Data</li>
                       </ul>
                       <div class="d-grid">
-                        <a *ngIf="typeOf(this.userId) === 'number'"
+                        <a *ngIf="typeOf(this.customerid) === 'number'"
                           (click)="selectPlan('ULTRA')" class="btn btn-primary
                           text-uppercase">SELECT</a>
                       </div>
@@ -114,7 +114,7 @@
         </div>
 
       </div>
-      <div *ngIf="typeOf(this.userId) === 'number'" class="devices-info">
+      <div *ngIf="typeOf(this.customerid) === 'number'" class="devices-info">
         <form class="form-inline form-container shadow form-bg">
           <div class="form-item-container">
             <div class="form-labels">
@@ -136,7 +136,7 @@
         {{this.errorMsg}}
       </div>
 
-      <div *ngIf="typeOf(this.userId) != 'number'" class="text-center">
+      <div *ngIf="typeOf(this.customerid) != 'number'" class="text-center">
         <h3><a [routerLink]="['/login']">Login</a> to create your own plan!</h3>
         <p>We offer the best prices around.... no seriously! <br/> Pick the plan
             that best fits your needs.</p>
@@ -147,7 +147,7 @@
     </div>
     <p *ngIf="this.warningMsg" class="text-center alert alert-danger " role="alert">{{warningMsg}}</p>
     <div class="button-container-plan">
-      <div *ngIf="typeOf(this.userId) === 'number'" class="submit-button">
+      <div *ngIf="typeOf(this.customerid) === 'number'" class="submit-button">
         <button class="button-styling" (click)="submitPlan()">
           Create Plan
         </button>

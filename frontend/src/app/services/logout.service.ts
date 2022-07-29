@@ -8,7 +8,7 @@ import { UserStateService } from './user-state.service';
   providedIn: 'root'
 })
 export class LogoutService {
-  url: string = "http://localhost:8080/logout"; //dunno yet
+  url: string = "http://localhost:8080/logout";
   constructor(private http: HttpClient, private userStateService: UserStateService, private router: Router) { }
   logout(): Observable<HttpResponse<any>> {
     this.userStateService.resetUser();

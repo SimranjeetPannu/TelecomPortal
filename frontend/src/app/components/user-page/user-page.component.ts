@@ -32,7 +32,7 @@ export class UserPageComponent implements OnInit {
       if (data.body != null) {
         // console.log(data.body);
         
-        sessionStorage.setItem('userId', data.body.id.toString()); 
+        sessionStorage.setItem('customerid', data.body.id.toString()); 
         //STUFF WITH DATA HERE
         this.User = data.body;
         this.userStateService.changeUser(this.User)

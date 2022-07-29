@@ -15,20 +15,18 @@ export class PlanService {
     return this.http.get<PhonePlan[]>(this.url + "/authed", {observe: 'response', withCredentials: true});
   }
 
-  //THIS NEEDS TWEAKING, NEEDS NEW ROUTES ON BACKEND
-  findPlansByUser(userId: number): Observable<HttpResponse<PhonePlan[]>> {
-    return this.http.get<PhonePlan[]>(this.url + `/${userId}`, {observe: 'response', withCredentials: true});
+  findPlansByUser(customerid: number): Observable<HttpResponse<PhonePlan[]>> {
+    return this.http.get<PhonePlan[]>(this.url + `/${customerid}`, {observe: 'response', withCredentials: true});
   }
 
-  findPlanById(planId: number): Observable<HttpResponse<PhonePlan>> {
-    return this.http.get<PhonePlan>(this.url + `/plan/${planId}`, {observe: 'response', withCredentials: true});
+  findPlanById(planid: number): Observable<HttpResponse<PhonePlan>> {
+    return this.http.get<PhonePlan>(this.url + `/plan/${planid}`, {observe: 'response', withCredentials: true});
   }
 
   findLatestPlan(): Observable<HttpResponse<PhonePlan>> {
     return this.http.get<PhonePlan>(this.url + `/latestplan`, {observe: 'response', withCredentials: true});
   }
 
-  //might not need all CRUD for plans
   savePlan(plan: PhonePlan): Observable<HttpResponse<PhonePlan>> {
     return this.http.post<PhonePlan>(this.url + "/newplan", plan, {observe: 'response', withCredentials: true});
   }
