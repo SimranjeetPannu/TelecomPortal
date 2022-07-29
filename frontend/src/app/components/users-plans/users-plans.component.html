@@ -1,72 +1,41 @@
 <div *ngIf="User?.userName">
-    <table class="table align-middle mb-0 bg-white shadow">
-      <thead class="bg-light">
+
+  <table class="table">
+      <thead>
         <tr>
-          <th>Plan Name</th>
-          <th>Device Limit</th>
-          <th>Price</th>
-    
-          <th>Actions</th>
+          <th scope="col">Plan Name</th>
+          <th scope="col">Plan Cost</th>
+          <th scope="col">Device Limit</th>
+          <th scope="col">Modify</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let plan of Plans">
-          <td>
-            <div class="d-flex align-items-center">
-              <img
-                  src="../../assets/cart.png"
-                  alt=""
-                  style="width: 45px; height: 45px"
-                  class="rounded-circle"
-                  />
-              <div class="ms-3">
-                <p class="fw-bold mb-1">{{plan.planName}}</p>
-                <p class="text-muted mb-0">#{{plan.id}}</p>
-              </div>
+    <tbody>
+      <tr *ngFor="let plan of Plans">
+        <td>{{plan.planName}}</td>
+        <td>{{plan.price}}</td>
+        <td>{{plan.deviceLimit}}</td>
+        <td stlye="text-align: right; ">
+
+          
+          <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group mr-2" role="group" aria-label="First group">
+              <button type="button" class="btn btn-secondary btn-sm" [routerLink] = "['/planCreation']">Add</button>
             </div>
-          </td>
-          <td>
-            <p class="fw-normal mb-1">Total Devices: {{plan.deviceLimit}}</p>
-          </td>
-    
-          <td>${{plan.price}}</td>
-          <td stlye="text-align: right; ">
-            <button
-                    type="button"
-                    class="btn btn-link btn-rounded btn-sm fw-bold"
-                    data-mdb-ripple-color="dark"
-                    [routerLink] = "['/update', plan.id]"
-    
-                    >
-                    <a [routerLink] = "['/update', plan.id]">Edit</a>
-    
-            </button>
-            <button
-                    type="button"
-                    class="btn btn-link btn-rounded btn-sm fw-bold"
-                    data-mdb-ripple-color="dark"
-    
-                    >
-                    <a (click)="deletePlan(plan.id)">Delete</a>
-    
-            </button>
-    
-          </td>
-        </tr>
-    
-      </tbody>
-    </table>
-    <div class="button-container">
-        <button (click)="redirect()" type="button" class="btn btn-primary">Add Plan</button>
-    </div>
-    <div class="total-container">
-        <div class="card shadow" style="width: 500px;">
-            <div class="card-body">
-              <h5 class="card-title">Monthly Bill</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Account Total ${{TotalCost}}</h6>
-              <p class="card-text">Please call our convenience line if you have any plan concerns at: 888-420-8080</p>
-              <a href="#" class="card-link">Home Page</a>
+            <div class="btn-group mr-2" role="group" aria-label="Second group">
+              <button type="button" class="btn btn-secondary btn-sm" [routerLink] = "['/update', plan.id]">Update</button>
+            </div>
+            <div class="btn-group" role="group" aria-label="Third group">
+              <button type="button" class="btn btn-secondary btn-sm" (click)="deletePlan(plan.id)">Remove</button>
             </div>
           </div>
-    </div>
-    </div>
+
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+            <h6> Current Monthly Bill Amount: ${{TotalCost}}</h6>
+  </div>

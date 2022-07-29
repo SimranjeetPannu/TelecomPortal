@@ -13,7 +13,7 @@ import { User } from './models/user.model';
 
 const routes: Routes = [
   {
-    path:'',redirectTo:'landing', pathMatch: 'full'
+    path:'',redirectTo:'user', pathMatch: 'full'
   },
   {
     path: 'landing', component: LandingPageComponent

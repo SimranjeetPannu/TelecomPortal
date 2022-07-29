@@ -1,31 +1,29 @@
-<div class="container text-center">
+<div>
     <br/>
       <div>
-          <h1>Login</h1>
+          <h3>Please Log In</h3>
       </div>
   
       <br/>
   
       <form (ngSubmit)="login(); userForm.reset()" #userForm>
       <div class="m-3">
-          <div class="control-label form-group row" style="justify-content: center; margin-right: 13%;">
-              <label for="Email" class="col-sm-2 col-form-label"><span style="font-weight: bold">Email:</span> </label>
+          <div class="form-group">
+              <label for="Email"><span style="font-weight: bold">Account Email:</span> </label>
   
                   <input [(ngModel)]="credentials.email" type="Email" name="Email" class="form-control" required #Email="ngModel" style="max-width: 400px; "/>
   
           </div>
            <br/>
-          <div class="control-label form-group row" style="justify-content: center; margin-right: 13%;">
-              <label for="Password" class="col-sm-2 col-form-label"><span style="font-weight: bold">Password:</span> </label>
+          <div class="form-group">
+              <label for="Password" ><span style="font-weight: bold">Password:</span> </label>
   
                   <input [(ngModel)]="credentials.password" type="password" class="form-control" name="Password" id="Password" required minlength="6" maxlength="20" #Password="ngModel"
                   style="max-width: 400px; "/>
   
           </div>
   
-          <div  *ngIf="Password.invalid && (Password.dirty || Password.touched)" >
-              <div *ngIf="Password.errors?.['required']" ><span style="color: red" >Password is required</span></div>
-          </div>
+ 
   
           <br/>
           <div *ngIf="this.errorMsg == 'User Name/Password not found.'" class="alert alert-danger " role="alert">
@@ -33,11 +31,11 @@
           </div>
           <br/>
           <div>
-              <button type="button" class="btn btn-primary" value="Post" (click)="login()">Login</button>
+              <button type="button" class="btn btn-warning" value="Post" (click)="login()">Login</button>
           </div>
           <br/>
           <div>
-              No Account yet? <a [routerLink]="['/signup']">Create One</a>
+              <a [routerLink]="['/signup']">or Create an Account</a>
           </div>
           <!-- <div class="alert alert-danger" [hidden]="!error">
               There was a problem logging in. Please try again.

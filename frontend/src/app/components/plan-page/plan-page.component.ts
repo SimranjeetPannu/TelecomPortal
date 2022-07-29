@@ -57,23 +57,23 @@ export class PlanPageComponent implements OnInit {
     var plan1 = document.getElementById("plan1");
     var plan2 = document.getElementById("plan2");
     var plan3 = document.getElementById("plan3");
-    if (p == 'MINIMAL') {
-      this.mimtPlan = 'MINIMAL';
+    if (p == 'YELLOW PLAN') {
+      this.mimtPlan = 'YELLOW PLAN';
       plan1?.classList.add('selected');
       this.selected = true;
       let curPhones = document.getElementById("curPhones");
       let maxPhones = document.getElementById("maxPhones");
       if (curPhones && maxPhones) {
-        maxPhones.innerHTML = "1";
-        curPhones.innerHTML = "1";
+        maxPhones.innerHTML = "2";
+        curPhones.innerHTML = "2";
 
       }
       while (this.phones.length > 1) {
         this.phones.pop();
       }
-      this.Plan.planName = "Minimal";
-      this.Plan.price = 20.99;
-      this.Plan.deviceLimit = 1;
+      this.Plan.planName = "Yellow Plan";
+      this.Plan.price = 31.45;
+      this.Plan.deviceLimit = 2;
     }
     else {
       plan1?.classList.remove('selected');
@@ -87,14 +87,14 @@ export class PlanPageComponent implements OnInit {
       if (curPhones && maxPhones) {
         maxPhones.innerHTML = "5";
 
-        while (this.phones.length > 5) {
+        while (this.phones.length > 4) {
           this.phones.pop();
-          curPhones.innerHTML = "5";
+          curPhones.innerHTML = "4";
         }
       }
       this.Plan.planName = "Basic";
-      this.Plan.price = 60.99;
-      this.Plan.deviceLimit = 5;
+      this.Plan.price = 65.76;
+      this.Plan.deviceLimit = 4;
     }
     else {
       plan2?.classList.remove('selected');
@@ -107,12 +107,12 @@ export class PlanPageComponent implements OnInit {
       let maxPhones = document.getElementById("maxPhones");
       if (curPhones && maxPhones) {
 
-        maxPhones.innerHTML = "12";
+        maxPhones.innerHTML = "8";
 
       }
       this.Plan.planName = "Ultra";
-      this.Plan.price = 110.99;
-      this.Plan.deviceLimit = 12;
+      this.Plan.price = 124.36;
+      this.Plan.deviceLimit = 8;
     }
     else {
       plan3?.classList.remove('selected');

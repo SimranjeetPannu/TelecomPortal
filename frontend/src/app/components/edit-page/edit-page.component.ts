@@ -91,13 +91,13 @@ export class EditPageComponent implements OnInit {
 
   planType(planName: string){
 
-    if(planName == "Minimal"){
+    if(planName == "Yellow Plan"){
       var plan1 = document.getElementById("plan1");
       plan1?.classList.add('selected');
 
       let maxPhones = document.getElementById("maxPhones");
       if(maxPhones){
-        maxPhones.innerHTML = "1";
+        maxPhones.innerHTML = "2";
       }
     }
     else{
@@ -110,7 +110,7 @@ export class EditPageComponent implements OnInit {
 
       let maxPhones = document.getElementById("maxPhones");
       if(maxPhones){
-        maxPhones.innerHTML = "5";
+        maxPhones.innerHTML = "4";
       }
     }
     else{
@@ -122,7 +122,7 @@ export class EditPageComponent implements OnInit {
       plan3?.classList.add('selected');
       let maxPhones = document.getElementById("maxPhones");
       if(maxPhones){
-        maxPhones.innerHTML = "12";
+        maxPhones.innerHTML = "8";
       }
     }
     else{

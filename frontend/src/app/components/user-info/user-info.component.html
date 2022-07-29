@@ -1,12 +1,15 @@
-<div *ngIf="User?.userName" class="card-container">
-    <div class="card">
-        <img src="../../assets/user icon.webp" alt="John" style="width:100%">
-        <h1>{{User?.userName}}
-        </h1>
-        <p class="title">MIMT Moble</p>
-        <p>Account Number</p>
-      
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <p><button>Contact Mimt</button></p>
-      </div>
-</div>
+<div *ngIf="User?.userName"></div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Username</th>
+          <th scope="col">Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{User?.userName}}</td>
+          <td>{{User?.email}}</td>
+        </tr>
+      </tbody>
+    </table>
