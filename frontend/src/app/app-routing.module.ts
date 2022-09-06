@@ -1,25 +1,39 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AccountComponent } from './components/account/account.component';
-import { AddDeviceComponent } from './components/add-device/add-device.component';
-import { AddPlanComponent } from './components/add-plan/add-plan.component';
-import { DeviceDetailComponent } from './components/device-detail/device-detail.component';
-import { DeviceListComponent } from './components/device-list/device-list.component';
-import { PlanDetailComponent } from './components/plan-detail/plan-detail.component';
-import { PlanListComponent } from './components/plan-list/plan-list.component';
+import { EditPageComponent } from './components/edit-page/edit-page.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { PlanPageComponent } from './components/plan-page/plan-page.component';
+import { UserLoginComponent } from './components/user-login/user-login.component';
+import { UserPageComponent } from './components/user-page/user-page.component';
+import { UserSignupComponent } from './components/user-signup/user-signup.component';
+import { User } from './models/user.model';
+
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'account', pathMatch: 'full' },
-  { path: 'account', component: AccountComponent },
-  { path: 'account/add-device', component: AddDeviceComponent },
-  { path: 'account/add-plan', component: AddPlanComponent },
-  { path: 'device/:id', component: DeviceDetailComponent },
-  { path: 'device', component: DeviceListComponent },
-  { path: 'plan/:id', component: PlanDetailComponent },
-  { path: 'phoneplan', component: PlanListComponent },
-  { path: 'account/plan', component: AccountComponent },
-  { path: 'account/device', component: AccountComponent },
+  {
+    path:'',redirectTo:'user', pathMatch: 'full'
+  },
+  {
+    path: 'landing', component: LandingPageComponent
+  },
+  {
+    path: 'planCreation', component: PlanPageComponent
+  },
+  {
+    path: 'user', component: UserPageComponent
+  },
+  {
+    path: 'login', component: UserLoginComponent
+  },
+  {
+    path: 'signup', component: UserSignupComponent
+  },
+  {
+    path: 'update/:id', component: EditPageComponent
+  },
+  { path: '**', pathMatch: 'full', component: PageNotFoundComponent }
 ];
 
 @NgModule({

@@ -1,0 +1,141 @@
+  <div>
+    <h3 *ngIf="typeOf(this.customerid) === 'number' "class="title">Add a Plan</h3>
+    <h3 *ngIf="typeOf(this.customerid) != 'number'" class="page-header">Available Plans</h3>
+      <div>
+        
+
+
+
+
+        <div class="plan-card-container">
+          <section class="pricing">
+            <div class="container">
+              <div class="row">
+                <!-- Free Tier -->
+                <div class="col-lg-4">
+                  <div class="card">
+                    <div class="card-body" id="plan1">
+                      <h5 class="card-title text-muted text-uppercase
+                        text-center">Yellow Plan</h5>
+                      <h6 class="card-price text-center">$31.45<span
+                          class="period">/month</span></h6>
+                      <hr>
+                      <ul class="fa-ul">
+                        <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Device Limit: 2</strong></li>
+                      </ul>
+                      <div class="d-grid">
+                        <a *ngIf="typeOf(this.customerid) === 'number'"
+                          (click)="selectPlan('YELLOW PLAN')" class="btn btn-warning">SELECT</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4">
+                  <div class="card">
+                    <div class="card-body" id="plan2">
+                      <h5 class="card-title text-muted text-uppercase
+                        text-center">Blue Plan</h5>
+                      <h6 class="card-price text-center">$65.76<span
+                          class="period">/month</span></h6>
+                      <hr>
+                      <ul class="fa-ul">
+                        <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Device Limit: 4</strong></li>
+                     
+                      </ul>
+                      <div class="d-grid">
+                        <a *ngIf="typeOf(this.customerid) === 'number'"
+                          (click)="selectPlan('BASIC')" class="btn btn-primary">SELECT</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4">
+                  <div class="card">
+                    <div class="card-body" id="plan3">
+                      <h5 class="card-title text-muted text-uppercase
+                        text-center">Green Plan</h5>
+                      <h6 class="card-price text-center">$124.36<span
+                          class="period">/month</span></h6>
+                      <hr>
+                      <ul class="fa-ul">
+                        <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Device Limit: 8</strong></li>
+                      
+                      </ul>
+                      <div class="d-grid">
+                        <a *ngIf="typeOf(this.customerid) === 'number'"
+                          (click)="selectPlan('ULTRA')" class="btn btn-success">SELECT</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <br>
+        <br>
+        <div *ngIf="typeOf(this.customerid) === 'number'">
+          <div class="devicelimitselect">
+            <h2>Add or Remove Devices</h2>
+            <div class="center-this">
+              <div>
+                <span class="btn btn-secondary" (click)="decr()">-</span>
+                <span id="curPhones">1</span>
+                <span class="btn btn-secondary" (click)="incr()">+</span>
+              </div>
+              <div>
+                <span>
+                  &nbsp; Plan has a device limit of:
+                </span>
+                <span id="maxPhones">
+                  1
+                </span>
+                <span>
+                  
+                </span>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div *ngIf="typeOf(this.customerid) === 'number'" class="devices-info">
+        <form>
+          <div class="form-item-container">
+            <div>
+              <div>
+                Enter a phone number and model below:
+                </div>
+            </div>
+              <app-list-item *ngFor="let phone of phones" (change)="changeHandler()"></app-list-item>
+          </div>
+        </form>
+      </div>
+
+      <div *ngIf="this.errorMsg" class="text-center alert alert-danger " role="alert">
+        {{this.errorMsg}}
+      </div>
+
+      <div *ngIf="typeOf(this.customerid) != 'number'" class="text-center">
+        <h3><a [routerLink]="['/login']">Login</a></h3>
+        
+          <p class="small">Don't have an account? <a [routerLink]="['/signup']">Create an Account</a></p>
+        </div>
+      </div>
+    <p *ngIf="this.warningMsg" class="text-center alert alert-danger " role="alert">{{warningMsg}}</p>
+    <div class="button-container-plan">
+      <div *ngIf="typeOf(this.customerid) === 'number'" class="submit-button">
+        <button class="btn btn-warning btn-sm" (click)="submitPlan()">
+          Create Plan
+        </button>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+      </div>
+  </div>

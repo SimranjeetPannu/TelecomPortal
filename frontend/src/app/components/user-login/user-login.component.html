@@ -1,0 +1,45 @@
+<div>
+    <br/>
+      <div>
+          <h3>Please Log In</h3>
+      </div>
+  
+      <br/>
+  
+      <form (ngSubmit)="login(); userForm.reset()" #userForm>
+      <div class="m-3">
+          <div class="form-group">
+              <label for="Email"><span style="font-weight: bold">Account Email:</span> </label>
+  
+                  <input [(ngModel)]="credentials.email" type="Email" name="Email" class="form-control" required #Email="ngModel" style="max-width: 400px; "/>
+  
+          </div>
+           <br/>
+          <div class="form-group">
+              <label for="Password" ><span style="font-weight: bold">Password:</span> </label>
+  
+                  <input [(ngModel)]="credentials.password" type="password" class="form-control" name="Password" id="Password" required minlength="6" maxlength="20" #Password="ngModel"
+                  style="max-width: 400px; "/>
+  
+          </div>
+  
+ 
+  
+          <br/>
+          <div *ngIf="this.errorMsg == 'User Name/Password not found.'" class="alert alert-danger " role="alert">
+            {{errorMsg}}
+          </div>
+          <br/>
+          <div>
+              <button type="button" class="btn btn-warning" value="Post" (click)="login()">Login</button>
+          </div>
+          <br/>
+          <div>
+              <a [routerLink]="['/signup']">or Create an Account</a>
+          </div>
+          <!-- <div class="alert alert-danger" [hidden]="!error">
+              There was a problem logging in. Please try again.
+          </div> -->
+      </div>
+      </form>
+  </div>

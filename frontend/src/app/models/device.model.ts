@@ -1,8 +1,17 @@
 export class Device {
 
-    deviceid!: number;
-    devicemodel!: string;
-    phonenumber!: number;
-    price!: number;
-    
+    id!: number;
+    deviceName: string;
+    phoneNumber: string;
+    planid: number;
+
+    constructor(
+        deviceName: string,
+        phoneNumber: string,
+        planid: number
+        ) {
+            this.deviceName = deviceName;
+            this.phoneNumber = phoneNumber;
+            this.planid = planid;
+        }
 }

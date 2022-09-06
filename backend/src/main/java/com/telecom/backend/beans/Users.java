@@ -1,4 +1,5 @@
 package com.telecom.backend.beans;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,65 +7,65 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 
+@EnableGlobalMethodSecurity(jsr250Enabled = false, prePostEnabled = true, securedEnabled = false)
 @Entity
-@Table(name = "customer")
+@Table(name = "users")
 public class Users {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "customerid")
-    private int customerId;
-	@Column(name = "firstname")
-	private String firstName;
-	@Column(name = "lastname")
-	private String lastName;
-    @Column
-    private String username;
-    @Column
-    private String password;
-    public Users() {
-    }
-	public Users(int customerId, String firstName, String lastName, String username, String password) {
-		this.customerId = customerId;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.username = username;
+	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	
+	@Column(name = "username")
+	private String userName;
+	
+	@Column(name = "email", unique = true)
+	private String email;
+	
+	@Column(name = "password")
+	private String password;
+
+	public Users() {}
+
+	public Users(String userName, String email, String password) {
+		this.userName = userName;
+		this.email = email;
 		this.password = password;
 	}
-	public int getCustomerId() {
-		return customerId;
+
+	public int getId() {
+		return this.id;
 	}
-	public void setCustomerId(int customerId) {
-		this.customerId = customerId;
+	public String getUserName() {
+		return userName;
 	}
-	public String getFirstName() {
-		return firstName;
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+
+	public String getEmail() {
+		return email;
 	}
-	public String getLastName() {
-		return lastName;
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	@Override
 	public String toString() {
-		return "Users [customerId=" + customerId + ", firstName=" + firstName + ", lastName=" + lastName + ", password="
-				+ password + ", username=" + username + "]";
+		return "User [email=" + email + ", id=" + id + ", password=" + password + ", userName=" + userName + "]";
 	}
-   
+
 }

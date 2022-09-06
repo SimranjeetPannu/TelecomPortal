@@ -8,57 +8,60 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "device")
+@Table(name = "devices")
 public class Device {
-	 @Id
-	 @GeneratedValue(strategy = GenerationType.IDENTITY)
-	 private int deviceid;
-	    
-	 @Column
-	 private String model;
-	    
-	 @Column
-	 private int devicecost;
+    
+    @Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 
-	 public Device() {
+    @Column(name = "devicename")
+    private String deviceName;
 
-	}
+    @Column(name = "phonenumber", unique = true)
+    private String phoneNumber;
 
-	public Device(int deviceid, String model, int devicecost) {
-		this.deviceid = deviceid;
-		this.model = model;
-		this.devicecost = devicecost;
-	}
+    @Column(name = "planid")
+    private int planid;
 
-	public int getDeviceid() {
-		return deviceid;
-	}
+    public Device() {}
 
-	public void setDeviceid(int deviceid) {
-		this.deviceid = deviceid;
-	}
+    public Device(String deviceName, String phoneNumber, int planid) {
+        this.deviceName = deviceName;
+        this.phoneNumber = phoneNumber;
+        this.planid = planid;
+    }
 
-	public String getModel() {
-		return model;
-	}
+    public int getId() {
+        return id;
+    }
+    public String getDeviceName() {
+        return deviceName;
+    }
 
-	public void setModel(String model) {
-		this.model = model;
-	}
+    public void setDeviceName(String deviceName) {
+        this.deviceName = deviceName;
+    }
 
-	public int getDevicecost() {
-		return devicecost;
-	}
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 
-	public void setDevicecost(int devicecost) {
-		this.devicecost = devicecost;
-	}
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
-	@Override
-	public String toString() {
-		return "Device [devicecost=" + devicecost + ", deviceid=" + deviceid + ", model=" + model + "]";
-	}
+    public int getPlanid() {
+        return planid;
+    }
+
+    public void setPlanid(int planid) {
+        this.planid = planid;
+    }
+
+    @Override
+    public String toString() {
+        return "Device [deviceName=" + deviceName + ", id=" + id + ", phoneNumber=" + phoneNumber + ", planid=" + planid + "]";
+    }
 
 }
-
-	

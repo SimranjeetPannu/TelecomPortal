@@ -1,41 +1,39 @@
 package com.telecom.backend.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import com.telecom.backend.beans.Users;
-import com.telecom.backend.data.UserRepositry;
+import com.telecom.backend.data.UserRepository;
 
 @Service
 public class UserService {
 	
 	@Autowired
-	private UserRepositry userRepo;
+	private UserRepository repo;
 	
-	//Register the new user
-	public Users register(Users user) {
-		return userRepo.save(user);
-	}
-	
-	//need code for find by username and login
-	
-	//List of all the customers
-	public List<Users> findAll(){
-		return userRepo.findAll();
-	}
-	
-	//Find the customer by id
-	public Optional<Users> findById(int id) {
-		return userRepo.findById(id);
+	public Users findById(int id){
+		return repo.findById(id);
 	}
 
-	
-	//delete the user
-	public void deleteById(int id) {
-		userRepo.deleteById(id);
+	public List<Users> findAllUsers(){
+		return repo.findAllUsers();
 	}
 
+	public Users findByEmail(String email) {
+		return repo.findByEmail(email);
+	}
+	
+	@Transactional(propagation = Propagation.REQUIRES_NEW)
+	public Users add(Users user) {
+		return repo.save(user);
+	}
+
+	@Transactional()
+	public void delete(int customerid) {
+		repo.delete(findById(customerid));
+	}
 }

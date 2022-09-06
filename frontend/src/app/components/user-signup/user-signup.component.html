@@ -1,0 +1,58 @@
+<div>
+    <br/>
+      <div>
+          <h3>Create a Login</h3>
+      </div>
+      <br/>
+      <form (ngSubmit)="create(); userForm.reset()"  #userForm>
+      <div class="m-3">
+          <div class="form-group">
+              <label for="Name" ><span style="font-weight: bold; ">Name:</span> </label>
+  
+                  <input [(ngModel)]="credentials.name" type="text" class="form-control" name="Name" id="Name" required minlength="0" maxlength="50" #Name="ngModel"
+                  style="max-width: 400px; "/>
+  
+  
+          </div>
+          <div  *ngIf="Name.invalid && (Name.dirty || Name.touched)">
+            <div *ngIf="Name.errors?.['required']"><span style="color: red">Enter a name</span></div>
+        </div>
+          <br/>
+          <div class="control-label form-group">
+              <label for="Email"><span style="font-weight: bold">Account Email:</span> </label>
+  
+                  <input [(ngModel)]="credentials.email" type="Email" name="Email" class="form-control" required #Email="ngModel" style="max-width: 400px; "/>
+  
+          </div>
+          <div  *ngIf="Email.invalid && (Email.dirty || Email.touched)">
+            <div *ngIf="Email.errors?.['required']"><span style="color: red">Enter an email</span></div>
+        </div>
+          <br/>
+          <div>
+              <label for="Password"><span style="font-weight: bold">Password:</span> </label>
+  
+                  <input [(ngModel)]="credentials.password" type="password" class="form-control" name="Password" id="Password" required minlength="6" maxlength="20" #Password="ngModel"
+                  style="max-width: 400px; "/>
+  
+          </div>
+          <div  *ngIf="Password.invalid && (Password.dirty || Password.touched)">
+            <div *ngIf="Password.errors?.['required']" ><span style="color: red">Enter an password</span></div>
+        </div>
+        <br />
+        <div *ngIf="this.errorMsg" class="alert alert-danger" role="alert">
+          {{errorMsg}}
+        </div>
+        <br />
+          <div>
+              <button type="button" class="btn btn-warning" value="Save" (click)="create()">Sign Up</button>
+          </div>
+  
+          <br />
+  
+          <div>
+            Already Have an account? 
+            <a [routerLink]="['/login']">Login Now</a>
+        </div>
+      </div>
+      </form>
+  </div>

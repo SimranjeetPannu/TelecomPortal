@@ -1,38 +1,63 @@
-import { HttpClientModule } from '@angular/common/http';
-
-import { NgModule } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AddPlanComponent } from './components/add-plan/add-plan.component';
-import { PlanDetailComponent } from './components/plan-detail/plan-detail.component';
-import { PlanListComponent } from './components/plan-list/plan-list.component';
-import { AddDeviceComponent } from './components/add-device/add-device.component';
-import { DeviceDetailComponent } from './components/device-detail/device-detail.component';
-import { DeviceListComponent } from './components/device-list/device-list.component';
-import { AccountComponent } from './components/account/account.component';
+import { UserPageComponent } from './components/user-page/user-page.component';
+import { PlanPageComponent } from './components/plan-page/plan-page.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { UserInfoComponent } from './components/user-info/user-info.component';
+import { UsersPlansComponent } from './components/users-plans/users-plans.component';
+import { UserLoginComponent } from './components/user-login/user-login.component';
 import { FormsModule } from '@angular/forms';
+import { UserSignupComponent } from './components/user-signup/user-signup.component';
+import { RouterModule, Routes } from '@angular/router';
+import { AppService } from './services/app.service';
+import { ListItemComponent } from './components/list-item/list-item.component';
+import { CookieService } from 'ngx-cookie-service';
+import { EditPageComponent } from './components/edit-page/edit-page.component';
 
+//need to override intercept
+@Injectable()
+export class XhrInterceptor implements HttpInterceptor {
 
+  intercept(req: HttpRequest<any>, next: HttpHandler) {
+    const xhr = req.clone({
+      headers: req.headers.set('X-Requested-With', 'XMLHttpRequest')
+    });
+    return next.handle(xhr);
+  }
+}
+
+//might need routes changed
+const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'landing'},
+  { path: 'landing', component: LandingPageComponent},
+  { path: 'login', component: UserLoginComponent}
+];
 @NgModule({
   declarations: [
     AppComponent,
-    AddPlanComponent,
-    PlanDetailComponent,
-    PlanListComponent,
-    AddDeviceComponent,
-    DeviceDetailComponent,
-    DeviceListComponent,
-    AccountComponent,
+    UserPageComponent,
+    PlanPageComponent,
+    LandingPageComponent,
+    PageNotFoundComponent,
+    UserInfoComponent,
+    UsersPlansComponent,
+    UserLoginComponent,
+    UserSignupComponent,
+    ListItemComponent,
+    EditPageComponent
   ],
   imports: [
+    RouterModule.forRoot(routes),
     BrowserModule,
     AppRoutingModule,
-    FormsModule, 
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [AppService, CookieService, { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

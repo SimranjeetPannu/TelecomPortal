@@ -1,0 +1,9 @@
+<h3 *ngIf="User?.userName">Account Details</h3>
+<div *ngIf="!User">
+    <p class="text-center"><strong>Please Login to Continue:</strong><a href="/login"><strong>Login</strong></a></p>
+</div>
+<div id="user"> 
+</div>
+
+    <app-user-info [User]="this.User"></app-user-info>
+    <app-users-plans [User]="this.User"></app-users-plans>

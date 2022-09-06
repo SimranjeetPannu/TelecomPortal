@@ -1,0 +1,73 @@
+<div>
+  <div>
+    
+                <h3>Add or Remove Devices For Selected Plan</h3>
+                <br>
+                <div class="center-this">
+                    <div>
+                        <span id="curPhones">1</span>
+                        <span class="btn btn-secondary" (click)="incr()">+</span>
+                      <span>
+                        &nbsp; Plan has a device limit of:
+                      </span>
+                      <span id="maxPhones">
+                        1
+                      </span>
+                      <span>
+                        
+                      </span>
+                    </div>
+                </div>
+<br>
+
+
+  
+          <div class="devices-info">
+            <form>
+              <div class="form-item-container">
+                <div class="form-labels">
+                  <div>
+                      Enter a phone number and model below:
+                      </div>
+                </div>
+                <form id="my-form">
+                  <div class="form-item-container no-margin" *ngFor="let dev of Devices; let i = index">
+                    <input class="form-item" value="Phone number" type="tel" id="phone" placeholder="Phone Number" name="phoneNumber" value={{dev.phoneNumber}} (change)="changeHandler()">
+                    <input class="form-item" value="Phone model" type="text" id="model" placeholder="Phone Model" name="PhoneModel" value={{dev.deviceName}} (change)="changeHandler()">
+                    <button id="delete" (click)="deleteDevice(dev.id, i)">Delete</button>
+                </div>
+                </form>
+              </div>
+            </form>
+      </div>
+        </div>
+      </div>
+      <p *ngIf="this.warningMsg" class="text-center alert alert-danger " role="alert">{{warningMsg}}</p>
+      <div class="button-container-plan">
+
+            <div class="submit-button">
+                <button *ngIf="!this.warningMsg" class="btn btn-warning btn-sm" (click)="updatePlan()">
+                  Update
+                </button>
+                <button *ngIf="this.warningMsg" class="btn btn-warning btn-sm">
+                  ERROR
+                </button>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+      </div>
+      </div>
+
+
+
+
+
+
+
+
+            <div *ngIf="this.errorMsg">
+              {{this.errorMsg}}
+            </div>

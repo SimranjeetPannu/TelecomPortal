@@ -1,0 +1,96 @@
+
+  .num-devices{
+      padding-top: .5vh;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+  
+  }
+  
+    /* Hover Effects on Card */
+  
+    @media (min-width: 992px) {
+      .pricing .card:hover {
+        margin-top: -.25rem;
+        margin-bottom: .25rem;
+        box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);
+      }
+  
+      .pricing .card:hover .btn {
+        opacity: 1;
+      }
+    }
+    .card-body{
+      border: solid;
+      border-width: 1px;
+      border-color: #301b1b;
+      border-radius: 17px;
+    }
+    .selected{
+      border-width: 2px;
+      border-color: rgb(64, 185, 255);
+    }
+    .pin-to-bottom{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+  
+    .minus-button{
+      margin-right: 15px;
+      border:solid;
+      border-color: #00b7ff;
+      border-radius: 20px;
+      border-width: 2px;
+      background-color: #00b7ff;
+      color: white;
+  
+      padding-top:0px;
+      padding-bottom: 3px;
+      padding-left: 9px;
+      padding-right: 9px;
+      user-select: none;
+    }
+    .minus-button:hover{
+      background-color: #5dd1ff;
+    }
+    .plus-button{
+      margin-left: 15px;
+      border:solid;
+      border-color: #00b7ff;
+      border-radius: 20px;
+      border-width: 2px;
+      background-color: #00b7ff;
+  
+      padding-top:0px;
+      padding-bottom: 3px;
+      padding-left: 7px;
+      padding-right: 7px;
+      user-select: none;
+      color: white;
+    }
+    .plus-button:hover{
+      background-color: #5dd1ff;
+    }
+  
+    .button-styling{
+      background-color: #00b7ff;
+      color: white;
+      padding: 10px 20px;
+      border: solid;
+      border-radius: 20px;
+    }
+    .button-styling:hover{
+      background-color:#5dd1ff
+    }
+    .no-select{
+      background-color: #d4d4d4;
+    }
+    .no-margin{
+      margin: 0px;
+    }
+    .button-container-plan{
+      margin-top: 10vh;
+      display:flex;
+      justify-content: center;
+    }
